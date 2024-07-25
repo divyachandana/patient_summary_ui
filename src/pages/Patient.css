@@ -1,0 +1,42 @@
+.patient-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.sidebar {
+  flex: 0 0 20%;
+  min-width: 250px;
+}
+
+.main-content {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  min-width: 300px;
+}
+
+.chat {
+  flex: 0 0 20%;
+  min-width: 250px;
+  border-left: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .patient-page {
+    flex-direction: column;
+  }
+
+  .sidebar, .main-content, .chat {
+    flex: 1 1 100%;
+  }
+
+  .chat {
+    border-left: none;
+    border-top: 1px solid #ddd;
+  }
+}
