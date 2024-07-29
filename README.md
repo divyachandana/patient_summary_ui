@@ -1,14 +1,23 @@
+# UI Installation Guide
 
+Follow these steps to set up and run the UI for DoctorApp.
 
-Installation steps
+## Prerequisites
 
-Make sure you have installed node [https://nodejs.org/en/download/package-manager](https://nodejs.org/en/download/package-manager)
+Make sure you have installed Node.js. You can download and install it from [here](https://nodejs.org/en/download/package-manager).
 
-### `npm install`
+## Installation Steps
 
+### 1. Install dependencies
 
-### `npm start`
+Run the following command to install the necessary packages:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    npm install
 
+### 2. Start the application
+
+Run the following command to start the application in development mode:
+
+    npm start
+
+The app will run in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
