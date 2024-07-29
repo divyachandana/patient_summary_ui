@@ -1,15 +1,48 @@
+/* Header.css */
+
 .header {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-  }
-  
-  .MuiToolbar-root {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .MuiTypography-h6 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #8559c4, #b83fce);
+  color: white;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 20px 20px;
+}
+
+.header-title {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+}
+
+.header-greeting {
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+}
+
+.logo-icon {
+  color: #6200ea;
+  font-size: 36px;
+}

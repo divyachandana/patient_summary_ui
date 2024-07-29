@@ -1,17 +1,19 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
 import './Header.css';
+import PersonIcon from '@mui/icons-material/Person';
 
-function Header() {
+const Header = () => {
   return (
-    <AppBar position="static" className="header">
-      <Toolbar>
-        <Typography variant="h6">
-          Doctor's Dashboard
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <div className="header">
+      <div className="header-title">Doctor's Dashboard</div>
+      <div className="header-user">
+        <span className="header-greeting">Hello DC</span>
+        <div className="header-logo">
+          <PersonIcon className="logo-icon" />
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
 export default Header;
