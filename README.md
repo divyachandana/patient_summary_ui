@@ -2,7 +2,7 @@
 
 Installation steps
 
-Make sure you have installed node 
+Make sure you have installed node [https://nodejs.org/en/download/package-manager](https://nodejs.org/en/download/package-manager)
 
 ### `npm install`
 
