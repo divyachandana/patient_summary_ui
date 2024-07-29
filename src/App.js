@@ -5,8 +5,6 @@ import Patient from './pages/Patient';
 import ReactQueryProvider from './ReactQueryProvider';
 import './App.css';
 
-// import Chat from './components/Chat';
-
 
 function App() {
   return (
@@ -20,7 +18,6 @@ function App() {
               <Route path="/patient/:id" element={<Patient />} />
             </Routes>
           </div>
-          {/* <Chat /> */}
         </div>
       </Router>
     </ReactQueryProvider>

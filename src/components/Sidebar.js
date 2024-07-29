@@ -6,11 +6,13 @@ import { HealthAndSafety, Person, Sick, Healing, ReportProblem, CalendarToday, V
 import { useDebounce } from 'use-debounce';
 import './Sidebar.css';
 
+// Function to fetch patients based on the search query
 const fetchPatients = async (query) => {
   const { data } = await axios.get(`http://localhost:8000/search?q=${query}`);
   return data;
 };
 
+// Array of category objects with their names and icons
 const categories = [
   { name: 'Health Summary', icon: <HealthAndSafety /> },
   { name: 'Personal Details', icon: <Person /> },
@@ -26,15 +28,21 @@ const categories = [
 ];
 
 function Sidebar({ onCategorySelect, onPatientChange }) {
+  // State for storing the search term
   const [searchTerm, setSearchTerm] = useState('');
+  // Debounced version of the search term to reduce API calls
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
+  // State for the selected patient
   const [selectedPatient, setSelectedPatient] = useState(null);
+  // State for the selected category
   const [selectedCategory, setSelectedCategory] = useState('Health Summary');
 
+  // Query to fetch patients based on the debounced search term
   const { data: patients = [], isLoading } = useQuery(['patients', debouncedSearchTerm], () => fetchPatients(debouncedSearchTerm), {
     enabled: !!debouncedSearchTerm,
   });
 
+  // Handler for changing the selected patient
   const handlePatientChange = (event, value) => {
     setSelectedPatient(value);
     if (value && value.id) {
@@ -44,6 +52,7 @@ function Sidebar({ onCategorySelect, onPatientChange }) {
     }
   };
 
+  // Handler for selecting a category
   const handleCategorySelect = (category) => {
     setSelectedCategory(category.name);
     console.log('Selected category:', category.name);

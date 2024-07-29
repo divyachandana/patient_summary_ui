@@ -6,17 +6,25 @@ import './Patient.css';
 import useWebSocket from '../hooks/useWebSocket';
 import Chat from '../components/Chat';
 
-
 function Patient() {
+  // State to store the currently selected category
   const [selectedCategory, setSelectedCategory] = useState('Health Summary');
+  
+  // Custom hook for WebSocket connection
   const { messages, sendMessage, clearMessages } = useWebSocket('ws://localhost:8000/ws_generate_summary');
+  
+  // State to store summaries for each patient
   const [summaries, setSummaries] = useState({});
-  const [selectedPatient, setSelectedPatient] = useState(null); // Define selectedPatient state
+  
+  // State to store the currently selected patient
+  const [selectedPatient, setSelectedPatient] = useState(null);
 
+  // useEffect to log messages whenever they are updated
   useEffect(() => {
     console.log('Messages in Patient component updated:', messages);
   }, [messages]);
 
+  // Handler for selecting a category
   const handleCategorySelect = (categoryName, patientId) => {
     setSelectedCategory(categoryName);
     clearMessages(); // Clear messages on new category selection
@@ -24,6 +32,7 @@ function Patient() {
     const patientSummaries = summaries[patientId] || {};
     const categorySummary = patientSummaries[categoryName];
 
+    // Send a message if the summary for the selected category is not available
     if (!categorySummary) {
       const message = categoryName === 'Health Summary'
         ? patientId
@@ -33,6 +42,7 @@ function Patient() {
     }
   };
 
+  // Handler for updating messages
   const handleMessagesUpdate = (newMessages) => {
     setSummaries((prevSummaries) => {
       const updatedSummaries = { ...prevSummaries };
@@ -46,6 +56,7 @@ function Patient() {
     });
   };
 
+  // Handler for changing the selected patient
   const handlePatientChange = (patientId) => {
     setSelectedPatient(patientId);
     setSelectedCategory('Health Summary');
